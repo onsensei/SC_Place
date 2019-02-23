@@ -1,14 +1,31 @@
-// import Home from '../pages/Home/Home.page';
 import Place from '../pages/Place/Place.page';
 import Test from '../pages/Test/Test.page';
-import {createAppContainer, createStackNavigator} from 'react-navigation';
+import {createAppContainer, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 
-const RootNavigator = createStackNavigator({
+const TestNavigator = createStackNavigator({
   Test: {
-    screen: Test
+    screen: Test,
+    navigationOptions: {
+      headerTitle: 'Test'
+    }
+  }
+});
+
+const PlaceNavigator = createStackNavigator({
+  Place: {
+    screen: Place,
+    navigationOptions: {
+      headerTitle: 'Place'
+    }
+  }
+});
+
+const RootNavigator = createBottomTabNavigator({
+  Test: {
+    screen: TestNavigator
   },
   Place: {
-    screen: Place
+    screen: PlaceNavigator
   }
 });
 
